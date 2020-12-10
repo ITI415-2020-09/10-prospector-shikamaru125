@@ -258,4 +258,22 @@ public bool startFaceUp = false;
 			card.faceUp = startFaceUp;
 		}
 
+		// shuffle the ccards in deck.cards
+		static public void Shuffle(ref List<Card> oCards)
+		{
+			//create a temporary list to hold then ew shuffle order
+			List<Card> tCards = new List<Card>();
+
+			int ndx;
+			tCards = new List<Card>();
+			while(oCards.Count > 0) {
+				ndx = Random.Range(0,oCards.Count);
+				tCards.Add(oCards[ndx]);
+				oCards.RemoveAt(ndx);
+			}
+			
+			oCards = tCards;
+		}
+
+
 } // Deck class
